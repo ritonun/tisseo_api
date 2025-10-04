@@ -50,7 +50,7 @@ class TisseoAPI:
         except ValueError:
             raise RuntimeError(f"Erreur lors du parsing du json en reponse de l'api {debug_msg}")
 
-    def get_stops_schedule(self, parametres: dict = {}):
+    def get_stops_schedules(self, parametres: dict = {}):
         """
         Faire une requete a l'api tisseo pour obtenir les prochains passages de cet arret
         cf. p26 api doc
