@@ -22,3 +22,20 @@ def get_station_index_from_area(stop_area: str) -> int | None:
         if station["stop_area"] == stop_area:
             return station["index"]
     return None
+
+
+def get_next_departure_from_api_response(stops_schedules) -> list:
+    """
+    Depuis la reponse JSON de l'API, extraire les prochains passages.
+    :param return: sorted list [datetime: str, datetime: str, ...]
+    """
+
+    datetimes = set()
+
+    departures = stops_schedules["departures"]["departure"]
+    for departure in departures:
+        datetimes.add(departure["dateTime"])
+
+    datetimes = sorted(datetimes)
+
+    return datetimes
